@@ -18,6 +18,7 @@ export class DashboardComponent {
   constructor(
     public service: ServicePrincipalService,
     private _router: Router
+    
   ) 
   {
 
@@ -28,4 +29,20 @@ export class DashboardComponent {
   logout(){
     this.router.navigate([''])
   }
+
+  abrirModalQR(){
+    this.router.navigate(['/qr'])
+  }
+  abrirModalRecharge(){
+    this.router.navigate(['/recarga'])
+  }
+
+  irHistorial(){
+    this.router.navigate(['/historial'])
+  }
+
+  irProfile(){
+    this.router.navigate(['/perfil'])
+  }
+  
 }

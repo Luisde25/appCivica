@@ -1,15 +1,159 @@
-<div class="container">
+<!-- MODAL PERFIL -->
+<div
+  class="profile-overlay"
+>
 
-    <div class="perfil-card">
-  
-      <img src="assets/user.png">
-  
-      <h2>Usuario Demo</h2>
-  
-      <p>CC 123456789</p>
-  
-      <p>Tarjeta Cívica Digital</p>
-  
+  <div class="profile-modal">
+
+    <!-- HEADER -->
+    <div class="profile-header">
+
+      <div class="profile-top">
+
+        <div>
+
+          <span class="profile-label">
+            👤 PERFIL DIGITAL
+          </span>
+
+          <h2>
+            Información personal
+          </h2>
+
+          <p>
+            Consulta tus datos asociados
+            a tu App Cívica.
+          </p>
+
+        </div>
+
+        <div
+          class="close-btn"
+          (click)="cerrarPerfil()"
+        >
+          ✕
+        </div>
+
+      </div>
+
     </div>
-  
+
+    <!-- BODY -->
+    <div class="profile-body">
+
+      <!-- FOTO -->
+      <div class="profile-photo-section">
+
+        <!-- <div class="profile-photo">
+
+          <img
+            src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+            alt="Usuario"
+          />
+
+        </div>
+ -->
+        <h3>
+          Luis David
+        </h3>
+
+        <p>
+          Usuario App Cívica
+        </p>
+
+      </div>
+
+      <!-- CARD INFO -->
+      <div class="profile-info-card">
+
+        <!-- ITEM -->
+        <div class="profile-item">
+
+          <div class="profile-icon">
+            🪪
+          </div>
+
+          <div class="profile-info">
+
+            <span>
+              Nombre completo
+            </span>
+
+            <strong>
+              Luis David Gracias
+            </strong>
+
+          </div>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="profile-item">
+
+          <div class="profile-icon">
+            🚇
+          </div>
+
+          <div class="profile-info">
+
+            <span>
+              Número Cívica
+            </span>
+
+            <strong>
+              3847 9281 0021
+            </strong>
+
+          </div>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="profile-item">
+
+          <div class="profile-icon">
+            📅
+          </div>
+
+          <div class="profile-info">
+
+            <span>
+              Fecha de ingreso
+            </span>
+
+            <strong>
+              12 de marzo de 2022
+            </strong>
+
+          </div>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="profile-item">
+
+          <div class="profile-icon">
+            💚
+          </div>
+
+          <div class="profile-info">
+
+            <span>
+              Estado
+            </span>
+
+            <strong class="active-status">
+              Cuenta activa
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
+</div>

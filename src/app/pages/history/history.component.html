@@ -1,18 +1,211 @@
-<div class="container">
+<!-- MODAL HISTORIAL PREMIUM -->
+<div
+  class="history-overlay"
+>
 
-    <h1>Historial</h1>
-  
-    <div class="item" *ngFor="let item of service.historial">
-  
-      <div>
-        <strong>{{ item.tipo }}</strong>
-        <p>{{ item.fecha }}</p>
+  <div class="history-modal">
+
+    <!-- HEADER -->
+    <div class="history-header">
+
+      <div class="history-top">
+
+        <div>
+
+          <span class="history-label">
+            ⚡ ACTIVIDAD RECIENTE
+          </span>
+
+          <h2>
+            Historial
+          </h2>
+
+          <p>
+            Visualiza tus movimientos,
+            recargas y generación de QR.
+          </p>
+
+        </div>
+
+        <div
+          class="close-btn"
+          (click)="cerrarHistorial()"
+        >
+          ✕
+        </div>
+
       </div>
-  
-      <div>
-        ${{ item.valor }}
-      </div>
-  
+
     </div>
-  
+
+    <!-- BODY -->
+    <div class="history-body">
+
+      <!-- RECARGAS -->
+      <div class="history-section">
+
+        <div class="section-title">
+
+          <h3>
+            Recargas realizadas
+          </h3>
+
+          <div class="section-badge">
+            {{ historialRecargas.length }}
+          </div>
+
+        </div>
+
+        <!-- EMPTY -->
+        <div
+          class="empty-history"
+          *ngIf="historialRecargas.length === 0"
+        >
+
+          <div class="history-icon recharge">
+            💳
+          </div>
+
+          <h4>
+            No hay recargas
+          </h4>
+
+          <p>
+            Tus recargas aparecerán aquí
+            automáticamente.
+          </p>
+
+        </div>
+
+        <!-- ITEMS -->
+        <div
+          class="history-card"
+          *ngFor="let item of historialRecargas"
+        >
+
+          <!-- ICON -->
+          <div class="history-icon recharge">
+            💳
+          </div>
+
+          <!-- INFO -->
+          <div class="history-info">
+
+            <h4>
+              Recarga exitosa
+            </h4>
+
+            <p>
+              Método:
+              {{ item.metodo }}
+            </p>
+
+          </div>
+
+          <!-- RIGHT -->
+          <div class="history-right">
+
+            <div class="history-amount">
+
+              + {{ item.valor | currency:'COP':'symbol':'1.0-0' }}
+
+            </div>
+
+            <div class="history-date">
+
+              {{ item.fecha }}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- QR -->
+      <div class="history-section">
+
+        <div class="section-title">
+
+          <h3>
+            Generación de QR
+          </h3>
+
+          <div class="section-badge">
+            {{ historialQR.length }}
+          </div>
+
+        </div>
+
+        <!-- EMPTY -->
+        <div
+          class="empty-history"
+          *ngIf="historialQR.length === 0"
+        >
+
+          <div class="history-icon qr">
+            🚇
+          </div>
+
+          <h4>
+            No hay QR generados
+          </h4>
+
+          <p>
+            Los códigos QR generados
+            aparecerán aquí.
+          </p>
+
+        </div>
+
+        <!-- ITEMS -->
+        <div
+          class="history-card"
+          *ngFor="let qr of historialQR"
+        >
+
+          <!-- ICON -->
+          <div class="history-icon qr">
+            🚇
+          </div>
+
+          <!-- INFO -->
+          <div class="history-info">
+
+            <h4>
+              QR generado
+            </h4>
+
+            <p>
+              Acceso Metro Medellín
+            </p>
+
+          </div>
+
+          <!-- RIGHT -->
+          <div class="history-right">
+
+            <div class="history-amount">
+
+              Activo
+
+            </div>
+
+            <div class="history-date">
+
+              {{ qr.fecha }}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
+</div>

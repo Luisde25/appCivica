@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ServicePrincipalService } from '../../services/service-principal.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-history',
@@ -11,5 +12,31 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './history.component.css'
 })
 export class HistoryComponent {
-  constructor(public service: ServicePrincipalService) {}
+  router:Router
+
+  constructor(
+    public service: ServicePrincipalService,
+    private _router: Router
+    
+  ) 
+  {
+
+    this.router = _router
+  }
+
+  mostrarHistorial = false;
+
+/* HISTORIAL RECARGAS */
+historialRecargas:any[] = [];
+
+/* HISTORIAL QR */
+historialQR:any[] = [];
+
+
+/* CERRAR */
+cerrarHistorial(){
+
+  this.router.navigate(['/dashboard'])
+
+}
 }

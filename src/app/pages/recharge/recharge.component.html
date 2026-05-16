@@ -1,11 +1,178 @@
-<div class="container">
+<!-- MODAL RECARGA -->
+<div class="recharge-overlay" >
 
-    <h1>Recargar Tarjeta</h1>
-  
-    <input type="number" [(ngModel)]="valor">
-  
-    <button (click)="recargar()">
-      Recargar
-    </button>
-  
+  <div class="recharge-modal">
+
+    <!-- HEADER -->
+    <div class="recharge-header">
+
+      <div>
+
+        <span class="recharge-label">
+          RECARGA DIGITAL
+        </span>
+
+        <h2>Agregar saldo</h2>
+
+        <p>
+          Recarga tu App Cívica de forma rápida y segura
+        </p>
+
+      </div>
+
+      <div
+        class="close-btn"
+        (click)="cerrarRecarga()"
+      >
+        ✕
+      </div>
+
+    </div>
+
+    <!-- BODY -->
+    <div class="recharge-body">
+
+      <!-- SALDO -->
+      <div class="current-balance">
+
+        <span>Saldo actual</span>
+
+        <h1>
+          {{ saldo | currency:'COP':'symbol':'1.0-0' }}
+        </h1>
+
+      </div>
+
+      <!-- METODOS -->
+      <div class="methods">
+
+        <!-- PSE -->
+        <div
+          class="method-card"
+          [class.active]="metodoPago === 'pse'"
+          (click)="seleccionarMetodo('pse')"
+        >
+
+          <div class="method-icon">
+            💳
+          </div>
+
+          <div>
+
+            <h3>PSE</h3>
+
+            <p>Pago seguro en línea</p>
+
+          </div>
+
+        </div>
+
+        <!-- LLAVE -->
+        <div
+          class="method-card"
+          [class.active]="metodoPago === 'llave'"
+          (click)="seleccionarMetodo('llave')"
+        >
+
+          <div class="method-icon">
+            🏦
+          </div>
+
+          <div>
+
+            <h3>Llave bancaria</h3>
+
+            <p>Transferencia inmediata</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- VALORES -->
+      <div class="amount-section">
+
+        <h3>Selecciona un valor</h3>
+
+        <div class="amount-grid">
+
+          <button
+            class="amount-btn"
+            (click)="seleccionarMonto(5000)"
+          >
+            $5.000
+          </button>
+
+          <button
+            class="amount-btn"
+            (click)="seleccionarMonto(10000)"
+          >
+            $10.000
+          </button>
+
+          <button
+            class="amount-btn"
+            (click)="seleccionarMonto(20000)"
+          >
+            $20.000
+          </button>
+
+          <button
+            class="amount-btn"
+            (click)="seleccionarMonto(50000)"
+          >
+            $50.000
+          </button>
+
+           <button
+            class="amount-btn"
+            (click)="seleccionarMonto(50000)"
+          >
+            $50.000
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- RESUMEN -->
+      <div
+        class="summary-card"
+        *ngIf="montoSeleccionado > 0"
+      >
+
+        <div class="summary-row">
+          <span>Monto</span>
+          <strong>
+            {{ montoSeleccionado | currency:'COP':'symbol':'1.0-0' }}
+          </strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Método</span>
+          <strong>
+            {{ metodoPago === 'pse' ? 'PSE' : 'Llave bancaria' }}
+          </strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="recharge-footer">
+
+      <button
+        class="pay-btn"
+        [disabled]="montoSeleccionado === 0"
+        (click)="recargarSaldo()"
+      >
+        ⚡ Recargar saldo
+      </button>
+
+    </div>
+
   </div>
+
+</div>

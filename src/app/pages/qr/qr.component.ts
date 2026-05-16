@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ServicePrincipalService } from '../../services/service-principal.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr',
@@ -11,16 +12,32 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './qr.component.css'
 })
 export class QrComponent {
-  constructor(private service: ServicePrincipalService) {}
+  route: Router
+  qrGenerado = false;
+  qrUrl = '';
+  constructor(
+    private service: ServicePrincipalService,
+    private _route: Router
+  
+  ) {
 
-  ingresarMetro() {
+    this.route = _route
 
-    if(this.service.saldo >= 3200) {
-      this.service.pagarPasaje();
-      alert('Ingreso autorizado');
-    }
-    else {
-      alert('Saldo insuficiente');
-    }
   }
+
+
+cerrarModalQR(){
+  this.route.navigate(['/dashboard'])
+}
+
+generarQR(){
+
+  this.qrGenerado = true;
+
+  this.qrUrl =
+  'https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=MetroDemo';
+
+}
+
+
 }

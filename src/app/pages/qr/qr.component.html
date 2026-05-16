@@ -1,13 +1,110 @@
-<div class="container">
+<!-- MODAL QR PREMIUM -->
+<div class="qr-modal-overlay">
 
-    <h1>QR de Ingreso</h1>
-  
-    <div class="qr-box">
-      <img src="assets/qr-demo.png">
+  <div class="qr-modal">
+
+    <!-- HEADER -->
+    <div class="qr-top">
+
+      <div>
+
+        <span class="qr-label">
+          VIAJE DIGITAL
+        </span>
+
+        <h2>
+          QR de ingreso
+        </h2>
+
+        <p>
+          Genera y presenta tu código para ingresar al Metro
+        </p>
+
+      </div>
+
+      <div
+        class="qr-close"
+        (click)="cerrarModalQR()"
+      >
+        ✕
+      </div>
+
     </div>
-  
-    <button (click)="ingresarMetro()">
-      Simular Ingreso
-    </button>
-  
+
+    <!-- BODY -->
+    <div class="qr-body">
+
+      <!-- ESTADO VACIO -->
+      <div
+        class="empty-state"
+        *ngIf="!qrGenerado"
+      >
+
+        <div class="metro-circle">
+          🚇
+        </div>
+
+        <h3>
+          Aún no tienes un QR activo
+        </h3>
+
+        <p>
+          Genera un nuevo código temporal para acceder
+          al sistema de transporte.
+        </p>
+
+      </div>
+      <h3>
+        QR listo para viajar
+      </h3>
+      <!-- QR -->
+      <div
+        class="qr-generated"
+        *ngIf="qrGenerado"
+      >
+
+        <!-- CARD QR -->
+        <div class="qr-card-premium">
+
+          <div class="scanner-line"></div>
+
+          <img
+            [src]="qrUrl"
+            alt="QR"
+          />
+
+        </div>
+
+        <!-- STATUS -->
+        <div class="qr-status">
+
+          <div class="status-dot"></div>
+
+          Disponible offline
+
+        </div>
+        <h3>
+          QR listo para viajar
+        </h3>
+       
+
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="qr-footer">
+
+      <button
+        class="generate-btn"
+        (click)="generarQR()"
+      >
+        <span>⚡</span>
+        Generar o ver QR
+      </button>
+
+    </div>
+
   </div>
+
+</div>
