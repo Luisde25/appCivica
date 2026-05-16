@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: npm run build -- --base-href "/app-civica/"
+        run: npm run build -- --base-href "/AppCivica/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
