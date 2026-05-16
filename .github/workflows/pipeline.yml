@@ -29,10 +29,13 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --base-href "/AppCivica/"
 
+      - name: List dist folders
+        run: ls -R dist
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/AppCivica/browser
+          path: dist
 
   deploy:
     needs: build
